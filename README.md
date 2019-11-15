@@ -35,7 +35,8 @@ Create a REST API server to store and read data from a PostgreSQL Database. The 
 
 There is a many to many relationship between authors and books. A book may have many authors while an author may write many books.
 
-The is a one to many relationship between sections and books. One section can hold many books while a book can only be in one sction.
+The is a one to many relationship between sections and books. One section can hold many books while a book 
+can only be in one sction.
 
 * Add audit fields to all tables.
 
@@ -57,7 +58,8 @@ The is a one to many relationship between sections and books. One section can ho
 
   * PUT /data/books/{id} - updates a books info (Title, Copyright, ISBN) but does NOT have to assign authors to the books.
 
-  * POST /data/books/{bookid}/authors/{authorid} - assigns a book already in the system (bookid) to an author already in the system (authorid) (see how roles are handled for users)
+  * POST /data/books/{bookid}/authors/{authorid} - assigns a book already in the system (bookid) to an author already in the 
+  system (authorid) (see how roles are handled for users)
 
   * DELETE /data/books/{id} - deletes a book and the book author combinations - but does not delete the author records.
  
@@ -82,4 +84,5 @@ Add custom Swagger documentation.
 
 The bookstore endpoints should be pageable and sortable.
 
-Note that several obvious end points are not included in the required list. Finish out the list of useful end points. You are to decide what those end points are!
+Note that several obvious end points are not included in the required list. Finish out the list of useful end points. 
+You are to decide what those end points are!

@@ -14,8 +14,11 @@ import org.springframework.security.oauth2.provider.token.TokenStore;
 @EnableAuthorizationServer
 public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter
 {
-    static final String CLIENT_ID = System.getenv("OAUTHCLIENTID");
-    static final String CLIENT_SECRET = System.getenv("OAUTHCLIENTSECRET");
+//    static final String CLIENT_ID = System.getenv("OAUTHCLIENTID");
+//    static final String CLIENT_SECRET = System.getenv("OAUTHCLIENTSECRET");
+
+    static final String CLIENT_ID = System.getenv("LAMBDACLIENT");
+    static final String CLIENT_SECRET = System.getenv("LAMBDASECRET");
 
     static final String GRANT_TYPE_PASSWORD = "password";
     static final String AUTHORIZATION_CODE = "authorization_code";
