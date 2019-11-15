@@ -1,8 +1,11 @@
 package com.lambdaschool.usermodel.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.lambdaschool.usermodel.logging.Loggable;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "books")
@@ -22,4 +25,12 @@ public class Book {
 
     private int copy;
 
+    @ManyToMany(mappedBy = "books")
+    private List<Author> authors = new ArrayList<>();
+
+    @ManyToOne
+    @JoinColumn(name = "sectionid",
+                nullable = false)
+    @JsonIgnoreProperties("books")
+    private Section section;
 }

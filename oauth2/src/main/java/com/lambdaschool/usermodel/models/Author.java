@@ -1,8 +1,11 @@
 package com.lambdaschool.usermodel.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.lambdaschool.usermodel.logging.Loggable;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "authors")
@@ -16,5 +19,13 @@ public class Author {
     private String lastname;
 
     private String firstname;
+
+    @ManyToMany
+    @JoinTable (name = "authorbook",
+                joinColumns = @JoinColumn(name = "authorid"),
+                inverseJoinColumns = @JoinColumn(name = "bookid"))
+    @JsonIgnoreProperties("authors")
+    private List<Book> books = new ArrayList<>();
+
 
 }
