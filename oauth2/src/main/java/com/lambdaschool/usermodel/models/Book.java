@@ -36,6 +36,13 @@ public class Book extends Auditable{
 
     public Book(){}
 
+    public Book(String booktitle, String ISBN, int copy, Section section) {
+        this.booktitle = booktitle;
+        this.ISBN = ISBN;
+        this.copy = copy;
+        this.section = section;
+    }
+
     public Book(String booktitle, String ISBN, int copy, List<Author> authors, Section section) {
         this.booktitle = booktitle;
         this.ISBN = ISBN;

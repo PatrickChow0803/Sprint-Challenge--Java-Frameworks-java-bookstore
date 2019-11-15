@@ -28,6 +28,10 @@ public class Section extends Auditable{
 
     public Section(){}
 
+    public Section(String sectionname) {
+        this.sectionname = sectionname;
+    }
+
     public Section(String sectionname, List<Book> books) {
         this.sectionname = sectionname;
         this.books = books;

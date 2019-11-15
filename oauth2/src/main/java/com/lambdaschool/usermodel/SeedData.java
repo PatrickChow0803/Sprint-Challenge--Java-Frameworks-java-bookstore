@@ -3,12 +3,8 @@ package com.lambdaschool.usermodel;
 import com.github.javafaker.Faker;
 import com.github.javafaker.service.FakeValuesService;
 import com.github.javafaker.service.RandomService;
-import com.lambdaschool.usermodel.models.Role;
-import com.lambdaschool.usermodel.models.User;
-import com.lambdaschool.usermodel.models.UserRoles;
-import com.lambdaschool.usermodel.models.Useremail;
-import com.lambdaschool.usermodel.services.RoleService;
-import com.lambdaschool.usermodel.services.UserService;
+import com.lambdaschool.usermodel.models.*;
+import com.lambdaschool.usermodel.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -27,11 +23,44 @@ public class SeedData implements CommandLineRunner
     @Autowired
     UserService userService;
 
+    @Autowired
+    SectionService sectionService;
+
+    @Autowired
+    AuthorService authorService;
+
+    @Autowired
+    BookService bookService;
 
     @Override
     public void run(String[] args) throws Exception
     {
 
+        Section s1 = new Section("Fiction");
+        Section s2 = new Section("Non-Fiction");
+        Section s3 = new Section("Technology");
+
+        s1 = sectionService.save(s1);
+        s2 = sectionService.save(s2);
+        s3 = sectionService.save(s3);
+
+        Author a1 = new Author("John", "Mitchell");
+        Author a2 = new Author("Dan", "Brown");
+        Author a3 = new Author("Jerry", "Poe");
+
+        a1 = authorService.save(a1);
+        a2 = authorService.save(a2);
+        a3 = authorService.save(a3);
+
+        Book b1 = new Book("Flatterland", "9780738206752", 2001, s1);
+        Book b2 = new Book("Digital Fortess", "9788489367012", 2007, s2);
+        Book b3 = new Book("The Da Vinci Code", "9780307474278", 2009, s3);
+
+        b1 = bookService.save(b1);
+        b2 = bookService.save(b2);
+        b3 = bookService.save(b3);
+
+        // ---- Start of Original Data -------
 
 
         Role r1 = new Role("admin");

@@ -29,6 +29,11 @@ public class Author extends Auditable {
 
     public Author(){}
 
+    public Author(String lastname, String firstname) {
+        this.lastname = lastname;
+        this.firstname = firstname;
+    }
+
     public Author(String lastname, String firstname, List<Book> books) {
         this.lastname = lastname;
         this.firstname = firstname;
