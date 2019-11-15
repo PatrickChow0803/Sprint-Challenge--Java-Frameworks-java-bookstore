@@ -10,7 +10,7 @@ import java.util.List;
 @Entity
 @Table(name = "sections")
 @Loggable
-public class Section {
+public class Section extends Auditable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -25,4 +25,35 @@ public class Section {
             orphanRemoval = true)
     @JsonIgnoreProperties("section")
     private List<Book> books = new ArrayList<>();
+
+    public Section(){}
+
+    public Section(String sectionname, List<Book> books) {
+        this.sectionname = sectionname;
+        this.books = books;
+    }
+
+    public long getSectionid() {
+        return sectionid;
+    }
+
+    public void setSectionid(long sectionid) {
+        this.sectionid = sectionid;
+    }
+
+    public String getSectionname() {
+        return sectionname;
+    }
+
+    public void setSectionname(String sectionname) {
+        this.sectionname = sectionname;
+    }
+
+    public List<Book> getBooks() {
+        return books;
+    }
+
+    public void setBooks(List<Book> books) {
+        this.books = books;
+    }
 }
